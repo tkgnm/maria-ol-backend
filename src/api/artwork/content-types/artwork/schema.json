@@ -51,6 +51,39 @@
       "type": "component",
       "component": "artwork.dimensions",
       "repeatable": true
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "currency": {
+      "type": "string",
+      "default": "EUR"
+    },
+    "quantity": {
+      "type": "integer",
+      "default": 1
+    },
+    "sold": {
+      "type": "boolean",
+      "default": false
+    },
+    "weightKg": {
+      "type": "decimal"
+    },
+    "sortOrder": {
+      "type": "integer"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::tag.tag",
+      "inversedBy": "artworks"
+    },
+    "groups": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::artwork-group.artwork-group",
+      "inversedBy": "artworks"
     }
   }
 }

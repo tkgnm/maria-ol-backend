@@ -1,0 +1,35 @@
+{
+  "kind": "singleType",
+  "collectionName": "bio",
+  "info": {
+    "singularName": "bio",
+    "pluralName": "bios",
+    "displayName": "bio"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "statement": {
+      "type": "text"
+    },
+    "portrait": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    },
+    "email": {
+      "type": "email"
+    },
+    "availabilityNote": {
+      "type": "string"
+    },
+    "studioLocation": {
+      "type": "string"
+    }
+  }
+}

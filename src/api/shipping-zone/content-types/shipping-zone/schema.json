@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shipping_zones",
+  "info": {
+    "singularName": "shipping-zone",
+    "pluralName": "shipping-zones",
+    "displayName": "shipping zone"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "baseRate": {
+      "type": "decimal"
+    },
+    "perKgRate": {
+      "type": "decimal"
+    },
+    "currency": {
+      "type": "string",
+      "default": "EUR"
+    }
+  }
+}

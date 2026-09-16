@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artwork_groups",
+  "info": {
+    "singularName": "artwork-group",
+    "pluralName": "artwork-groups",
+    "displayName": "artwork group"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "sortOrder": {
+      "type": "integer"
+    },
+    "artworks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::artwork.artwork",
+      "mappedBy": "groups"
+    }
+  }
+}
