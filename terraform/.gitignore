@@ -1,0 +1,16 @@
+# Local plugin cache / provider binaries.
+.terraform/
+
+# State can contain plaintext secret values - never commit it.
+*.tfstate
+*.tfstate.*
+.terraform.tfstate.lock.info
+
+# Real variable values (bucket names, overrides) - commit the .example file instead.
+*.tfvars
+!*.tfvars.example
+
+# CLI config, crash logs.
+*.tfplan
+crash.log
+crash.*.log

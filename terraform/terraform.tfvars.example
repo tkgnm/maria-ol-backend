@@ -1,0 +1,8 @@
+# Copy to terraform.tfvars (gitignored) and fill in real values.
+
+aws_region  = "us-east-1"
+project     = "maria-ol"
+environment = "development"
+
+# Must be globally unique across ALL AWS accounts, not just yours.
+bucket_name = "maria-ol-uploads-dev"
