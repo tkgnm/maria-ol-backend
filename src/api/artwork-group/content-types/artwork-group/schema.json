@@ -27,9 +27,9 @@
       "default": "grid",
       "required": true
     },
-    "boostedArtworks": {
+    "boostedArtwork": {
       "type": "relation",
-      "relation": "manyToMany",
+      "relation": "oneToOne",
       "target": "api::artwork.artwork"
     },
     "artworks": {

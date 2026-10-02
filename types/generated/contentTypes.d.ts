@@ -456,8 +456,8 @@ export interface ApiArtworkGroupArtworkGroup
   };
   attributes: {
     artworks: Schema.Attribute.Relation<'manyToMany', 'api::artwork.artwork'>;
-    boostedArtworks: Schema.Attribute.Relation<
-      'manyToMany',
+    boostedArtwork: Schema.Attribute.Relation<
+      'oneToOne',
       'api::artwork.artwork'
     >;
     createdAt: Schema.Attribute.DateTime;
