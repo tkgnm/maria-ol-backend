@@ -21,6 +21,17 @@
     "sortOrder": {
       "type": "integer"
     },
+    "displayMode": {
+      "type": "enumeration",
+      "enum": ["grid", "immersive", "hero"],
+      "default": "grid",
+      "required": true
+    },
+    "boostedArtworks": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::artwork.artwork"
+    },
     "artworks": {
       "type": "relation",
       "relation": "manyToMany",

@@ -456,10 +456,17 @@ export interface ApiArtworkGroupArtworkGroup
   };
   attributes: {
     artworks: Schema.Attribute.Relation<'manyToMany', 'api::artwork.artwork'>;
+    boostedArtworks: Schema.Attribute.Relation<
+      'manyToMany',
+      'api::artwork.artwork'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     description: Schema.Attribute.Text;
+    displayMode: Schema.Attribute.Enumeration<['grid', 'immersive', 'hero']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'grid'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
