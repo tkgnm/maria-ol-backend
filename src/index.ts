@@ -1,3 +1,6 @@
+import { createReadStream } from 'fs';
+import path from 'path';
+import sharp from 'sharp';
 import type { Core } from '@strapi/strapi';
 
 const GROUP_UID = 'api::artwork-group.artwork-group';
@@ -12,6 +15,29 @@ function relationIds(input: any, current: string[]): string[] {
   if (input.set) return toIds(input.set);
   const removed = new Set(toIds(input.disconnect ?? []));
   return [...current.filter((id) => !removed.has(id)), ...toIds(input.connect ?? [])];
+}
+
+const WEBP_QUALITY = 80;
+
+/**
+ * Re-encode a generated size (thumbnail or breakpoint) as WebP. Strapi keeps the
+ * original format, so PNG uploads yield lossless derivatives that are often larger
+ * than the original. The original upload itself is left untouched.
+ */
+async function toWebp(file: any) {
+  if (!file?.filepath || file.mime === 'image/webp' || file.mime === 'image/gif') return file;
+  const out = path.join(path.dirname(file.filepath), `${path.basename(file.filepath)}.webp`);
+  const info = await sharp(file.filepath).webp({ quality: WEBP_QUALITY }).toFile(out);
+  return Object.assign(file, {
+    ext: '.webp',
+    mime: 'image/webp',
+    filepath: out,
+    width: info.width,
+    height: info.height,
+    size: Math.round((info.size / 1000) * 100) / 100,
+    sizeInBytes: info.size,
+    getStream: () => createReadStream(out),
+  });
 }
 
 export default {
@@ -45,5 +71,15 @@ export default {
     });
   },
 
-  bootstrap() {},
+  bootstrap({ strapi }: { strapi: Core.Strapi }) {
+    // Serve generated image sizes as WebP (see toWebp).
+    const images = strapi.plugin('upload').service('image-manipulation');
+    const generateThumbnail = images.generateThumbnail;
+    const generateResponsiveFormats = images.generateResponsiveFormats;
+    images.generateThumbnail = async (file: any) => toWebp(await generateThumbnail(file));
+    images.generateResponsiveFormats = async (file: any) => {
+      const formats = await generateResponsiveFormats(file);
+      return Promise.all(formats.map(async (f: any) => ({ ...f, file: await toWebp(f.file) })));
+    };
+  },
 };

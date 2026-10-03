@@ -34,6 +34,8 @@ const config = ({ env }: Core.Config.Shared.ConfigParams): Core.Config.Plugin =>
   },
   upload: {
     config: {
+      // Responsive sizes (long side, px). `xlarge` is for the full-width hero.
+      breakpoints: { xlarge: 1600, large: 1000, medium: 750, small: 500 },
       provider: 'aws-s3',
       providerOptions: {
         // Images are served through CloudFront (private bucket + OAC).
