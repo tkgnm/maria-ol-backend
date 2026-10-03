@@ -13,7 +13,8 @@
     "strapi": "strapi",
     "upgrade": "npx @strapi/upgrade latest",
     "upgrade:dry": "npx @strapi/upgrade latest --dry",
-    "secrets:pull": "node scripts/fetch-env.mjs"
+    "secrets:pull": "node scripts/fetch-env.mjs",
+    "backup:prod": "sh scripts/backup-prod.sh"
   },
   "dependencies": {
     "@strapi/database": "5.52.3",

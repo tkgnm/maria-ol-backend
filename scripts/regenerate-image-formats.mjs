@@ -22,6 +22,7 @@ const FILE_UID = 'plugin::upload.file';
 
 const app = await createStrapi(await compileStrapi()).load();
 const images = app.plugin('upload').service('image-manipulation');
+const uploads = app.plugin('upload').service('provider'); // builds the stream/buffer the S3 provider needs
 const provider = app.plugin('upload').provider;
 
 const files = await app.db.query(FILE_UID).findMany({ where: { mime: { $startsWith: 'image/' } } });
@@ -56,7 +57,7 @@ for (const file of files) {
   if (thumb) next.thumbnail = thumb;
   for (const { key, file: f } of await images.generateResponsiveFormats(source)) next[key] = f;
 
-  for (const f of Object.values(next)) await provider.upload(f); // sets f.url
+  for (const f of Object.values(next)) await uploads.upload(f); // sets f.url
 
   const formats = Object.fromEntries(
     Object.entries(next).map(([key, f]) => [key, {
