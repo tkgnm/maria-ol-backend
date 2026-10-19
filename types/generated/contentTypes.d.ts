@@ -626,6 +626,45 @@ export interface ApiEventEvent extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
+  collectionName: 'homepage';
+  info: {
+    description: 'The homepage layout: an ordered list of blocks. Artworks not placed here are not shown on the homepage.';
+    displayName: 'homepage';
+    pluralName: 'homepages';
+    singularName: 'homepage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    layout: Schema.Attribute.DynamicZone<
+      [
+        'layout.hero',
+        'layout.heading',
+        'layout.two-across',
+        'layout.three-across',
+        'layout.three-middle-large',
+        'layout.full-width',
+        'layout.immersive',
+      ]
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::homepage.homepage'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiShippingZoneShippingZone
   extends Struct.CollectionTypeSchema {
   collectionName: 'shipping_zones';
@@ -1203,6 +1242,7 @@ declare module '@strapi/strapi' {
       'api::award.award': ApiAwardAward;
       'api::bio.bio': ApiBioBio;
       'api::event.event': ApiEventEvent;
+      'api::homepage.homepage': ApiHomepageHomepage;
       'api::shipping-zone.shipping-zone': ApiShippingZoneShippingZone;
       'api::tag.tag': ApiTagTag;
       'plugin::content-releases.release': PluginContentReleasesRelease;

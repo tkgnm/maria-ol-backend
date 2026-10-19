@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_layout_hero",
+  "info": {
+    "displayName": "Hero",
+    "description": "Full-bleed image at the top of the page. Only used when it is the first block."
+  },
+  "options": {},
+  "attributes": {
+    "artwork": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    }
+  },
+  "config": {}
+}

@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_layout_three_middle_large",
+  "info": {
+    "displayName": "Three, middle large",
+    "description": "Three artworks in a row, the middle one larger."
+  },
+  "options": {},
+  "attributes": {
+    "left": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    },
+    "middle": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    },
+    "right": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    }
+  },
+  "config": {}
+}

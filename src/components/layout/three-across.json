@@ -1,0 +1,26 @@
+{
+  "collectionName": "components_layout_three_across",
+  "info": {
+    "displayName": "Three across",
+    "description": "Three artworks in a row, equal size."
+  },
+  "options": {},
+  "attributes": {
+    "left": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    },
+    "middle": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    },
+    "right": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    }
+  },
+  "config": {}
+}

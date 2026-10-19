@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_full_width",
+  "info": {
+    "displayName": "Full width",
+    "description": "One artwork across the full content width."
+  },
+  "options": {},
+  "attributes": {
+    "artwork": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    }
+  },
+  "config": {}
+}

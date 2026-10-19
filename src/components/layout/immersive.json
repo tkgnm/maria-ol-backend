@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_immersive",
+  "info": {
+    "displayName": "Immersive",
+    "description": "Full-screen carousel of artworks, in the order listed."
+  },
+  "options": {},
+  "attributes": {
+    "artworks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::artwork.artwork"
+    }
+  },
+  "config": {}
+}

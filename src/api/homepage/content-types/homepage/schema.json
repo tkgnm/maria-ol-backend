@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "homepage",
+  "info": {
+    "singularName": "homepage",
+    "pluralName": "homepages",
+    "displayName": "homepage",
+    "description": "The homepage layout: an ordered list of blocks. Artworks not placed here are not shown on the homepage."
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "layout": {
+      "type": "dynamiczone",
+      "components": [
+        "layout.hero",
+        "layout.heading",
+        "layout.two-across",
+        "layout.three-across",
+        "layout.three-middle-large",
+        "layout.full-width",
+        "layout.immersive"
+      ]
+    }
+  }
+}

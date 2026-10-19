@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layout_two_across",
+  "info": {
+    "displayName": "Two across",
+    "description": "Two artworks side by side, equal size."
+  },
+  "options": {},
+  "attributes": {
+    "left": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    },
+    "right": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    }
+  },
+  "config": {}
+}

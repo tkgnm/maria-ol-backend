@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_layout_heading",
+  "info": {
+    "displayName": "Heading",
+    "description": "Optional section title and text above the rows that follow."
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    }
+  },
+  "config": {}
+}
