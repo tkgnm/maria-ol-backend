@@ -8,6 +8,20 @@ resource "aws_cloudfront_origin_access_control" "uploads" {
   signing_protocol                  = "sigv4"
 }
 
+# Uploaded files are content-addressed (hash in the filename), so browsers can cache them for a year.
+resource "aws_cloudfront_response_headers_policy" "uploads_cache" {
+  name    = "${var.project}-${var.environment}-uploads-cache"
+  comment = "Long-lived immutable caching for uploaded media"
+
+  custom_headers_config {
+    items {
+      header   = "Cache-Control"
+      value    = "public, max-age=31536000, immutable"
+      override = true
+    }
+  }
+}
+
 resource "aws_cloudfront_distribution" "uploads" {
   enabled = true
   comment = "${var.project} ${var.environment} media uploads CDN"
@@ -24,7 +38,8 @@ resource "aws_cloudfront_distribution" "uploads" {
     target_origin_id       = "s3-uploads"
     viewer_protocol_policy = "redirect-to-https"
     # AWS managed "CachingOptimized" policy.
-    cache_policy_id = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    cache_policy_id            = "658327ea-f89d-4fab-a63d-7e88639e58f6"
+    response_headers_policy_id = aws_cloudfront_response_headers_policy.uploads_cache.id
   }
 
   restrictions {
