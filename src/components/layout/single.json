@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_single",
+  "info": {
+    "displayName": "Single",
+    "description": "One artwork on its own, centred at a moderate size (not edge to edge)."
+  },
+  "options": {},
+  "attributes": {
+    "artwork": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    }
+  },
+  "config": {}
+}

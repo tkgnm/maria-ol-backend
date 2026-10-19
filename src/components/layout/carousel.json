@@ -2,7 +2,7 @@
   "collectionName": "components_layout_carousel",
   "info": {
     "displayName": "Carousel",
-    "description": "A sideways-scrolling strip of artworks within the page width, several visible at once, in the order listed."
+    "description": "One artwork at a time within the page width, advancing automatically, in the order listed."
   },
   "options": {},
   "attributes": {

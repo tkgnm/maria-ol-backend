@@ -23,7 +23,8 @@
         "layout.full-width",
         "layout.immersive",
         "layout.four-across",
-        "layout.carousel"
+        "layout.carousel",
+        "layout.single"
       ]
     }
   }
