@@ -50,7 +50,7 @@
     "dimensions": {
       "type": "component",
       "component": "artwork.dimensions",
-      "repeatable": true
+      "repeatable": false
     },
     "price": {
       "type": "decimal"

@@ -502,7 +502,7 @@ export interface ApiArtworkArtwork extends Struct.CollectionTypeSchema {
     currency: Schema.Attribute.String & Schema.Attribute.DefaultTo<'EUR'>;
     date: Schema.Attribute.Date;
     description: Schema.Attribute.Text;
-    dimensions: Schema.Attribute.Component<'artwork.dimensions', true>;
+    dimensions: Schema.Attribute.Component<'artwork.dimensions', false>;
     groups: Schema.Attribute.Relation<
       'manyToMany',
       'api::artwork-group.artwork-group'

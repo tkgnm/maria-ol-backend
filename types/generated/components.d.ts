@@ -8,6 +8,8 @@ export interface ArtworkDimensions extends Struct.ComponentSchema {
   attributes: {
     depth: Schema.Attribute.Integer;
     height: Schema.Attribute.Integer;
+    unit: Schema.Attribute.Enumeration<['cm']> &
+      Schema.Attribute.DefaultTo<'cm'>;
     width: Schema.Attribute.Integer;
   };
 }

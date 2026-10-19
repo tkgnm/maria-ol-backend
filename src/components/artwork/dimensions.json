@@ -13,6 +13,13 @@
     },
     "depth": {
       "type": "integer"
+    },
+    "unit": {
+      "type": "enumeration",
+      "enum": [
+        "cm"
+      ],
+      "default": "cm"
     }
   },
   "config": {}
