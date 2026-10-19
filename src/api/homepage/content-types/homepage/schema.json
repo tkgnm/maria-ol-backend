@@ -21,7 +21,9 @@
         "layout.three-across",
         "layout.three-middle-large",
         "layout.full-width",
-        "layout.immersive"
+        "layout.immersive",
+        "layout.four-across",
+        "layout.carousel"
       ]
     }
   }

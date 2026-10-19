@@ -14,6 +14,31 @@ export interface ArtworkDimensions extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutCarousel extends Struct.ComponentSchema {
+  collectionName: 'components_layout_carousel';
+  info: {
+    description: 'A sideways-scrolling strip of artworks within the page width, several visible at once, in the order listed.';
+    displayName: 'Carousel';
+  };
+  attributes: {
+    artworks: Schema.Attribute.Relation<'oneToMany', 'api::artwork.artwork'>;
+  };
+}
+
+export interface LayoutFourAcross extends Struct.ComponentSchema {
+  collectionName: 'components_layout_four_across';
+  info: {
+    description: 'Four artworks in a row, equal size.';
+    displayName: 'Four across';
+  };
+  attributes: {
+    first: Schema.Attribute.Relation<'oneToOne', 'api::artwork.artwork'>;
+    fourth: Schema.Attribute.Relation<'oneToOne', 'api::artwork.artwork'>;
+    second: Schema.Attribute.Relation<'oneToOne', 'api::artwork.artwork'>;
+    third: Schema.Attribute.Relation<'oneToOne', 'api::artwork.artwork'>;
+  };
+}
+
 export interface LayoutFullWidth extends Struct.ComponentSchema {
   collectionName: 'components_layout_full_width';
   info: {
@@ -103,6 +128,8 @@ declare module '@strapi/strapi' {
   export namespace Public {
     export interface ComponentSchemas {
       'artwork.dimensions': ArtworkDimensions;
+      'layout.carousel': LayoutCarousel;
+      'layout.four-across': LayoutFourAcross;
       'layout.full-width': LayoutFullWidth;
       'layout.heading': LayoutHeading;
       'layout.hero': LayoutHero;

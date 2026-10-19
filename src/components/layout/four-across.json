@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_layout_four_across",
+  "info": {
+    "displayName": "Four across",
+    "description": "Four artworks in a row, equal size."
+  },
+  "options": {},
+  "attributes": {
+    "first": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    },
+    "second": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    },
+    "third": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    },
+    "fourth": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::artwork.artwork"
+    }
+  },
+  "config": {}
+}

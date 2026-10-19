@@ -650,6 +650,8 @@ export interface ApiHomepageHomepage extends Struct.SingleTypeSchema {
         'layout.three-middle-large',
         'layout.full-width',
         'layout.immersive',
+        'layout.four-across',
+        'layout.carousel',
       ]
     >;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
